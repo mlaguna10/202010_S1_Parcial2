@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Channel</th>
+            <th scope="col">Season</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let r of series">
+          <tr>
+            <th scope="row">{{r.id}}</th>
+            <td (click)="onSelected(r)">{{r.name}}</td>
+            <td>{{r.channel}}</td>
+            <td>{{r.seasons}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="myDIV"></div>
+    </div>
+    <div class="col-8">
+      <div *ngIf="selected">
+        <div class="well">
+          <app-listar-detalle [serieDetail]="selectedSerie"></app-listar-detalle>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
